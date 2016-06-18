@@ -17,15 +17,16 @@
         "url": "http://www.gordejev.lv"
     },
     "license": "ISC",
-    "main": "index.js",
+    "main": "npm-fix-versions",
     "scripts": {
         "test": "mocha"
     },
     "bin": {
-        "npm-fix-versions": "./index.js"
+        "npm-fix-versions": "./npm-fix-versions"
     },
     "dependencies": {
-        "semver": "*"
+        "semver": "*",
+        "commander": "*"
     },
     "devDependencies": {
         "mocha": "*",

@@ -45,7 +45,12 @@ describe('NPM Fix Versions:', function () {
     });
 
     it('after all versions should be changed', function () {
-        require('../index').scan(testDir);
+        require('../npm-fix-versions').scan(testDir, {
+            comparator: '^',
+            production: true,
+            dev: true,
+            optional: true
+        });
         packageJSON.dependencies.a.should.eql('^0.0.20');
         packageJSON.dependencies.b.should.eql('^0.0.10');
         packageJSON.devDependencies.c.should.eql('^1.0.0');

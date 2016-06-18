@@ -4,10 +4,10 @@
  */
 var fs = require('fs');
 var semver = require('semver');
-var srgs = process.argv;
+var program = require('commander');
+var fixPkg = require('./package.json');
 
-
-exports.scan = function (projectDir) {
+exports.scan = function (projectDir, params) {
     var project_dir = projectDir || __dirname;
     var modules_dir = project_dir + '/node_modules';
     var project_pkg;
@@ -19,44 +19,43 @@ exports.scan = function (projectDir) {
         process.exit(1);
     }
 
-    if (project_pkg.dependencies) {
+    if (project_pkg.dependencies && params.production) {
         Object.keys(project_pkg.dependencies).forEach(function (dep) {
             var module_dir = modules_dir + '/' + dep;
             try {
                 var pkg = require(module_dir + '/package.json');
                 var ver = pkg.version.split('-')[0];
                 ver = semver.valid(ver);
-                project_pkg.dependencies[dep] = '^' + ver;
-            } catch(e) {
-                console.log(e)
+                project_pkg.dependencies[dep] = params.comparator + ver;
+            } catch (e) {
                 console.log('WARN: module ' + dep, 'in dependencies not found in node_modules');
             }
         });
     }
 
-    if (project_pkg.devDependencies) {
+    if (project_pkg.devDependencies && params.dev) {
         Object.keys(project_pkg.devDependencies).forEach(function (dep) {
             var module_dir = modules_dir + '/' + dep;
             try {
                 var pkg = require(module_dir + '/package.json');
                 var ver = pkg.version.split('-')[0];
                 ver = semver.valid(ver);
-                project_pkg.devDependencies[dep] = '^' + ver;
-            } catch(e) {
+                project_pkg.devDependencies[dep] = params.comparator + ver;
+            } catch (e) {
                 console.log('WARN: module ' + dep, 'in devDependencies not found in node_modules');
             }
         });
     }
 
-    if (project_pkg.optionalDependencies) {
+    if (project_pkg.optionalDependencies && params.optional) {
         Object.keys(project_pkg.optionalDependencies).forEach(function (dep) {
             var module_dir = modules_dir + '/' + dep;
             try {
                 var pkg = require(module_dir + '/package.json');
                 var ver = pkg.version.split('-')[0];
                 ver = semver.valid(ver);
-                project_pkg.optionalDependencies[dep] = '^' + ver;
-            } catch(e) {
+                project_pkg.optionalDependencies[dep] = params.comparator + ver;
+            } catch (e) {
                 console.log('WARN: module ' + dep, 'in optionalDependencies not found in node_modules');
             }
         });
@@ -65,7 +64,23 @@ exports.scan = function (projectDir) {
     fs.writeFileSync(project_dir + '/package.json', JSON.stringify(project_pkg, null, 4));
 };
 
-// allow normal node loading if appropriate
 if (!module.parent) {
-    exports.scan();
+
+    program
+        .version(fixPkg.version)
+        .option('-c, --comparator', 'Add comparator is composed of an operator and a version', '^')
+        .option('-p, --production', 'Scan production dependencies')
+        .option('-d, --dev', 'Scan dev dependencies')
+        .option('-o, --optional', 'Scan optional dependencies')
+        .parse(process.argv);
+
+    if (!program.dev && !program.optional) {
+        program.production = true;
+    }
+
+    if (program.comparator) {
+        exports.scan(null, program);
+    } else {
+        program.help();
+    }
 }
