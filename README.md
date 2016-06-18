@@ -31,5 +31,29 @@ $ cd /project_directory
 $ npm-fix-versions -c ^
 ```
 
+before:
+```js
+    "dependencies": {
+        "semver": "*",
+        "commander": "latest"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "chai": "*"
+    }
+```
+
+after:
+```js
+    "dependencies": {
+        "semver": "^1.0.0",
+        "commander": "^2.0.0"
+    },
+    "devDependencies": {
+        "mocha": "^3.5.0",
+        "chai": "^2.33.11"
+    }
+```
+
 
 
