@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/biggora/caminte.png?branch=master)](https://travis-ci.org/biggora/npm-fix-versions)
-[![NPM version](https://badge.fury.io/js/caminte.png)](http://badge.fury.io/js/npm-fix-versions)
+[![Build Status](https://travis-ci.org/biggora/npm-fix-versions.png?branch=master)](https://travis-ci.org/biggora/npm-fix-versions)
+[![NPM version](https://badge.fury.io/js/npm-fix-versions.png)](http://badge.fury.io/js/npm-fix-versions)
 # npm-fix-versions
 
 This module scan `node_modules` directory and update current versions for npm modules into your project `package.json`.
