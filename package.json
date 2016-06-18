@@ -1,32 +1,33 @@
 {
-  "name": "npm-fix-versions",
-  "version": "0.0.1",
-  "description": "This module provide fixing versions in npm modules in your project",
-  "keywords": [
-    "npm",
-    "version",
-    "module"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/biggora/npm-fix-versions.git"
-  },
-  "author": {
-    "name": "Aleksej Gordejev",
-    "email": "aleksej@gordejev.lv",
-    "url": "http://www.gordejev.lv"
-  },
-  "license": "ISC",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "bin": {
-    "npm-fix-versions": "./index.js"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "mocha": "*"
-  },
-  "optionalDependencies": {}
+    "name": "npm-fix-versions",
+    "version": "0.0.1",
+    "description": "This module provide fixing versions in npm modules in your project",
+    "keywords": [
+        "npm",
+        "version",
+        "module"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/biggora/npm-fix-versions.git"
+    },
+    "author": {
+        "name": "Aleksej Gordejev",
+        "email": "aleksej@gordejev.lv",
+        "url": "http://www.gordejev.lv"
+    },
+    "license": "ISC",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "bin": {
+        "npm-fix-versions": "./index.js"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "mocha": "*",
+        "chai": "*"
+    },
+    "optionalDependencies": {}
 }
