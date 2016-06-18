@@ -2,7 +2,7 @@
 [![NPM version](https://badge.fury.io/js/caminte.png)](http://badge.fury.io/js/npm-fix-versions)
 # npm-fix-versions
 
-This module provide fixing versions in npm modules in your project.
+This module scan `node_modules` directory and update current versions for npm modules into your project `package.json`.
 
 ## Installation
 
@@ -28,7 +28,7 @@ $ sudo npm install npm-fix-versions -g
 
 ```bash
 $ cd /project_directory
-$ npm-fix-versions -c ^
+$ npm-fix-versions -p -d -c ^
 ```
 
 before:
