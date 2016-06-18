@@ -1,0 +1,25 @@
+{
+  "name": "npm-fix-versions",
+  "version": "0.0.1",
+  "description": "Transport layer domain for rabbit",
+  "keywords": [
+    "npm",
+    "version",
+    "module"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/biggora/npm-fix-versions.git"
+  },
+  "author": {
+    "name": "Aleksej Gordejev",
+    "email": "aleksej@gordejev.lv",
+    "url": "http://www.gordejev.lv"
+  },
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {}
+}
