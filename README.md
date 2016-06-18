@@ -19,9 +19,9 @@ $ sudo npm install npm-fix-versions -g
     -h, --help        output usage information
     -V, --version     output the version number
     -c, --comparator  Add comparator is composed of an operator and a version
-    -p, --production  Scan production dependencies
-    -d, --dev         Scan dev dependencies
-    -o, --optional    Scan optional dependencies
+    -p, --production  Scan and fix production dependencies
+    -d, --dev         Scan and fix dev dependencies
+    -o, --optional    Scan and fix optional dependencies
 ```
 
 ## Get started!

@@ -69,9 +69,9 @@ if (!module.parent) {
     program
         .version(fixPkg.version)
         .option('-c, --comparator', 'Add comparator is composed of an operator and a version', '^')
-        .option('-p, --production', 'Scan production dependencies')
-        .option('-d, --dev', 'Scan dev dependencies')
-        .option('-o, --optional', 'Scan optional dependencies')
+        .option('-p, --production', 'Scan and fix production dependencies')
+        .option('-d, --dev', 'Scan and fix dev dependencies')
+        .option('-o, --optional', 'Scan and fix optional dependencies')
         .parse(process.argv);
 
     if (!program.dev && !program.optional) {
