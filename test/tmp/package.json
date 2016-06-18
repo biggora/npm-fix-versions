@@ -1,0 +1,11 @@
+{
+  "name": "test-case",
+  "version": "0.0.1",
+  "dependencies": {
+    "a": "*",
+    "b": "*"
+  },
+  "devDependencies": {
+    "c": "*"
+  }
+}
