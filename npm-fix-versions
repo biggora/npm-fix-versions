@@ -68,10 +68,10 @@ if (!module.parent) {
 
     program
         .version(fixPkg.version)
-        .option('-c, --comparator', 'Add comparator is composed of an operator and a version', '^')
-        .option('-p, --production', 'Scan and fix production dependencies')
-        .option('-d, --dev', 'Scan and fix dev dependencies')
-        .option('-o, --optional', 'Scan and fix optional dependencies')
+        .option('-c, --comparator', 'Add comparator', '^')
+        .option('-p, --production', 'Add production dependencies')
+        .option('-d, --dev', 'Add dev dependencies')
+        .option('-o, --optional', 'Add optional dependencies')
         .parse(process.argv);
 
     if (!program.dev && !program.optional) {

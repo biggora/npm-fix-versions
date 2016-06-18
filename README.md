@@ -6,7 +6,7 @@ This module provide fixing versions in npm modules in your project.
 
 ## Installation
 
-```
+```bash
 $ sudo npm install npm-fix-versions -g
 ```
 
@@ -19,14 +19,14 @@ $ sudo npm install npm-fix-versions -g
     -h, --help        output usage information
     -V, --version     output the version number
     -c, --comparator  Add comparator is composed of an operator and a version
-    -p, --production  Scan and fix production dependencies
-    -d, --dev         Scan and fix dev dependencies
-    -o, --optional    Scan and fix optional dependencies
+    -p, --production  Add production dependencies
+    -d, --dev         Add dev dependencies
+    -o, --optional    Add optional dependencies
 ```
 
 ## Get started!
 
-```
+```bash
 $ cd /project_directory
 $ npm-fix-versions -c ^
 ```
