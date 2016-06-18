@@ -3,6 +3,9 @@
  * Created by Alex on 6/18/2016.
  */
 var fs = require('fs');
+var semver = require('semver');
+var srgs = process.argv;
+
 
 exports.scan = function (projectDir) {
     var project_dir = projectDir || __dirname;
@@ -21,8 +24,11 @@ exports.scan = function (projectDir) {
             var module_dir = modules_dir + '/' + dep;
             try {
                 var pkg = require(module_dir + '/package.json');
-                project_pkg.dependencies[dep] = '^' + (pkg.version.split('-')[0]);
+                var ver = pkg.version.split('-')[0];
+                ver = semver.valid(ver);
+                project_pkg.dependencies[dep] = '^' + ver;
             } catch(e) {
+                console.log(e)
                 console.log('WARN: module ' + dep, 'in dependencies not found in node_modules');
             }
         });
@@ -33,7 +39,9 @@ exports.scan = function (projectDir) {
             var module_dir = modules_dir + '/' + dep;
             try {
                 var pkg = require(module_dir + '/package.json');
-                project_pkg.devDependencies[dep] = '^' + (pkg.version.split('-')[0]);
+                var ver = pkg.version.split('-')[0];
+                ver = semver.valid(ver);
+                project_pkg.devDependencies[dep] = '^' + ver;
             } catch(e) {
                 console.log('WARN: module ' + dep, 'in devDependencies not found in node_modules');
             }
@@ -45,7 +53,9 @@ exports.scan = function (projectDir) {
             var module_dir = modules_dir + '/' + dep;
             try {
                 var pkg = require(module_dir + '/package.json');
-                project_pkg.optionalDependencies[dep] = '^' + (pkg.version.split('-')[0]);
+                var ver = pkg.version.split('-')[0];
+                ver = semver.valid(ver);
+                project_pkg.optionalDependencies[dep] = '^' + ver;
             } catch(e) {
                 console.log('WARN: module ' + dep, 'in optionalDependencies not found in node_modules');
             }

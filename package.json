@@ -24,7 +24,9 @@
     "bin": {
         "npm-fix-versions": "./index.js"
     },
-    "dependencies": {},
+    "dependencies": {
+        "semver": "*"
+    },
     "devDependencies": {
         "mocha": "*",
         "chai": "*"

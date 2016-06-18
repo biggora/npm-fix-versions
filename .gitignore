@@ -20,4 +20,4 @@ ehthumbs.db
 .idea_modules/
 
 ## NodeJS
-/node_modules/
+node_modules/
